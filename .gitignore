@@ -1,0 +1,4 @@
+bin/
+obj/
+.env
+test/MasterClass.WebApi.Test/lcov.info

@@ -1,0 +1,7 @@
+FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
+WORKDIR /src
+COPY src/MasterClass.WebApi/MasterClass.WebApi.csproj src/MasterClass.WebApi/
+RUN dotnet restore src/MasterClass.WebApi/MasterClass.WebApi.csproj
+COPY . .
+WORKDIR /src/src/MasterClass.WebApi
+RUN dotnet build MasterClass.WebApi.csproj -c Release -o /app
