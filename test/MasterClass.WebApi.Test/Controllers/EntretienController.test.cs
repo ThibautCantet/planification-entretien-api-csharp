@@ -1,12 +1,11 @@
 using System;
 using System.Net;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using System.Threading.Tasks;
 using MasterClass.WebApi.Controllers;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Moq;
-using Newtonsoft.Json;
 using PlanificationEntretien;
 using Xunit;
 
@@ -30,25 +29,24 @@ namespace MasterClass.WebApi.Test.Controllers
         }
 
         [Fact]
-        public async void PlanifierEntretien_Status201()
+        public async Task PlanifierEntretien_Status201()
         {
             _entretien = _entretienService.planifier(_candidat, _recruteur, _disponibiliteCandidat, _disponibiliteRecruteur);
 
             var dateEtHeure = new DateTime(2022, 4, 5, 18, 0, 0);
             var planificationDto = new PlanificationDto(
                 new Candidat("C#", "candidat@mail.com", 4),
-                new Recruteur("C#", "candidat@mail.com", 4),
+                new Recruteur("C#", "recruteur@soat.fr", 4),
                 dateEtHeure,
                 dateEtHeure);
             
-            HttpContent content = new StringContent(JsonConvert.SerializeObject(planificationDto));
-            content.Headers.ContentType = new MediaTypeHeaderValue("appplication/json");
-            HttpResponseMessage response = await _client.PostAsync("api/entretien", content);
+            var content = JsonContent.Create(planificationDto);
+            var response = await _client.PostAsync("api/entretien", content);
+
+            Assert.Equal(HttpStatusCode.Created, response.StatusCode);
             
             var readFromJsonAsync = await response.Content.ReadFromJsonAsync<Entretien>();
             Assert.Equal(new Entretien(dateEtHeure, "candidat@mail.com", "recruteur@soat.fr"), readFromJsonAsync);
-
-            Assert.Equal(HttpStatusCode.Created, response.StatusCode);
         }
     }
 }
