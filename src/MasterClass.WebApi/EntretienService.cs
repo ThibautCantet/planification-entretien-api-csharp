@@ -14,7 +14,7 @@ namespace PlanificationEntretien
             _emailService = emailService;
         }
 
-        public Entretien planifier(Candidat candidat, Recruteur recruteur, DateTime disponibiliteCandidat,
+        public Entretien Planifier(Candidat candidat, Recruteur recruteur, DateTime disponibiliteCandidat,
             DateTime disponibiliteRecruteur)
         {
             Console.Out.WriteLine("planifier");

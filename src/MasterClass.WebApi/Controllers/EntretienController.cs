@@ -12,7 +12,7 @@ namespace MasterClass.WebApi.Controllers
         [HttpPost]
         public IActionResult Planifier([FromBody] PlanificationDto planificationDto)
         {
-            var result = _entretienService.planifier(planificationDto.Candidat, planificationDto.Recruteur, planificationDto.DisponibiliteCandidat, planificationDto.DisponibiliteRecruteur);
+            var result = _entretienService.Planifier(planificationDto.Candidat, planificationDto.Recruteur, planificationDto.DisponibiliteCandidat, planificationDto.DisponibiliteRecruteur);
             return Created("", result);
         }
     }

@@ -31,7 +31,7 @@ namespace MasterClass.WebApi.Test.Controllers
         [Fact]
         public async Task PlanifierEntretien_Status201()
         {
-            _entretien = _entretienService.planifier(_candidat, _recruteur, _disponibiliteCandidat, _disponibiliteRecruteur);
+            _entretien = _entretienService.Planifier(_candidat, _recruteur, _disponibiliteCandidat, _disponibiliteRecruteur);
 
             var dateEtHeure = new DateTime(2022, 4, 5, 18, 0, 0);
             var planificationDto = new PlanificationDto(
