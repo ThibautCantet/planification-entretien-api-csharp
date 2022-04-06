@@ -5,7 +5,7 @@ namespace MasterClass.WebApi
 {
     public interface IEntretienService
     {
-        Entretien planifier(Candidat candidat, Recruteur recruteur, DateTime disponibiliteCandidat,
+        Entretien Planifier(Candidat candidat, Recruteur recruteur, DateTime disponibiliteCandidat,
             DateTime disponibiliteRecruteur);
     }
 }

@@ -10,9 +10,9 @@ namespace MasterClass.WebApi.Controllers
         public EntretienController(IEntretienService entretienService) => _entretienService = entretienService;
         
         [HttpPost]
-        public IActionResult Planifier(PlanificationDto planificationDto)
+        public IActionResult Planifier([FromBody] PlanificationDto planificationDto)
         {
-            var result = _entretienService.planifier(planificationDto.Candidat, planificationDto.Recruteur, planificationDto.DisponibiliteCandidat, planificationDto.DisponibiliteRecruteur);
+            var result = _entretienService.Planifier(planificationDto.Candidat, planificationDto.Recruteur, planificationDto.DisponibiliteCandidat, planificationDto.DisponibiliteRecruteur);
             return Created("", result);
         }
     }
