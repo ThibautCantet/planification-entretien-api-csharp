@@ -17,12 +17,18 @@ namespace PlanificationEntretien
         public Entretien Planifier(Candidat candidat, Recruteur recruteur, DateTime disponibiliteCandidat,
             DateTime disponibiliteRecruteur)
         {
-            Console.Out.WriteLine("planifier");
-            var entretien = new Entretien(disponibiliteCandidat, candidat.Email, recruteur.Email);
-            _emailService.SendToCandidat(candidat.Email);
-            _emailService.SendToRecruteur(recruteur.Email);
+            if (disponibiliteCandidat.Date.Equals(disponibiliteRecruteur.Date) &&
+                candidat.Language.Equals(recruteur.Language)
+                && recruteur.Xp > candidat.Xp)
+            {
+                var entretien = new Entretien(disponibiliteCandidat, candidat.Email, recruteur.Email);
+                _emailService.SendToCandidat(candidat.Email);
+                _emailService.SendToRecruteur(recruteur.Email);
 
-            return _entretienRepository.Save(entretien);
+                return _entretienRepository.Save(entretien);
+            }
+
+            return null;
         }
     }
 }
