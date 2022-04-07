@@ -23,14 +23,14 @@ namespace PlanificationEntretien.Test.Controllers
         {
             var serviceClientProvider = fixture.Services;
             _entretienRepository = serviceClientProvider.GetService<IEntretienRepository>();
+            _entretienRepository.Clear();
+            
             _client = fixture.CreateClient();
         }
 
         [Fact]
         public async Task PlanifierEntretien_Should_Return_Status201()
         {
-            _entretienRepository.Clear();
-            
             var dateEtHeure = new DateTime(2022, 4, 5, 18, 0, 0);
             var planificationDto = new PlanificationDto(
                 new Candidat("C#", "candidat@mail.com", 4),
@@ -60,8 +60,6 @@ namespace PlanificationEntretien.Test.Controllers
         [Fact]
         public async Task PlanifierEntretien_Should_Return_Status404_When_Recruteur_Less_Experienced()
         {
-            _entretienRepository.Clear();
-            
             var dateEtHeure = new DateTime(2022, 4, 5, 18, 0, 0);
             var planificationDto = new PlanificationDto(
                 new Candidat("C#", "candidat@mail.com", 4),
@@ -81,8 +79,6 @@ namespace PlanificationEntretien.Test.Controllers
         [Fact]
         public async Task PlanifierEntretien_Should_Return_Status404_When_Different_Tech()
         {
-            _entretienRepository.Clear();
-
             var dateEtHeure = new DateTime(2022, 4, 5, 18, 0, 0);
             var planificationDto = new PlanificationDto(
                 new Candidat("C#", "candidat@mail.com", 4),
@@ -102,8 +98,6 @@ namespace PlanificationEntretien.Test.Controllers
         [Fact]
         public async Task PlanifierEntretien_Should_Return_Status404_When_Not_Available_At_The_Same_Moment()
         {
-            _entretienRepository.Clear();
-
             var dateEtHeure = new DateTime(2022, 4, 5, 18, 0, 0);
             var planificationDto = new PlanificationDto(
                 new Candidat("C#", "candidat@mail.com", 4),
