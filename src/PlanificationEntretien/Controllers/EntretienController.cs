@@ -13,7 +13,7 @@ namespace PlanificationEntretien.Controllers
         [HttpPost]
         public IActionResult Planifier([FromBody] PlanificationDto planificationDto)
         {
-            var result = _entretienService.Planifier(planificationDto.Candidat, planificationDto.Recruteur, planificationDto.DisponibiliteCandidat, planificationDto.DisponibiliteRecruteur);
+            var result = _entretienService.Planifier(planificationDto.CandidatId, planificationDto.RecruteurId, planificationDto.DisponibiliteCandidat, planificationDto.DisponibiliteRecruteur);
             if (result == null)
             {
                 return BadRequest();

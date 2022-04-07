@@ -28,6 +28,11 @@ namespace PlanificationEntretien.Repository
             }
         }
 
+        public Candidat FindById(Guid id)
+        {
+            return _candidats[id];
+        }
+
         public void Clear()
         {
             _candidats.Clear();

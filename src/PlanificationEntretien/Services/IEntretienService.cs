@@ -6,7 +6,7 @@ namespace PlanificationEntretien.Services
 {
     public interface IEntretienService
     {
-        Entretien Planifier(Candidat candidat, Recruteur recruteur, DateTime disponibiliteCandidat,
+        Entretien Planifier(Guid candidat, Guid recruteur, DateTime disponibiliteCandidat,
             DateTime disponibiliteRecruteur);
     }
 }

@@ -18,13 +18,27 @@ namespace PlanificationEntretien.Test.Controllers
     {
         private readonly HttpClient _client;
         private readonly IEntretienRepository _entretienRepository;
+        private readonly ICandidatRepository _candidatRepository;
+        private readonly IRecruteurRepository _recruteurRepository;
 
+        private static readonly Guid RECRUTEUR_CSHARP_5 = Guid.Parse("6c246f1c-cff3-41d4-b076-dc7c62fcf4aa");
+        private static readonly Guid RECRUTEUR_CSHARP_3 = Guid.Parse("6c246f1c-cff3-41d4-b076-dc7c62fcf4ab");
+        private static readonly Guid CANDIDAT_CSHARP_4 = Guid.Parse("6c246f1c-cff3-41d4-b076-dc7c62fcf4ac");
+        private static readonly Guid CANDIDAT_JAVA_4 = Guid.Parse("6c246f1c-cff3-41d4-b076-dc7c62fcf4ad");
         public EntretienControllerTest(WebApplicationFactory<Startup> fixture)
         {
             var serviceClientProvider = fixture.Services;
             _entretienRepository = serviceClientProvider.GetService<IEntretienRepository>();
+            _candidatRepository = serviceClientProvider.GetService<ICandidatRepository>();
+            _recruteurRepository = serviceClientProvider.GetService<IRecruteurRepository>();
             _entretienRepository.Clear();
-            
+            _candidatRepository.Clear();
+            _recruteurRepository.Clear();
+            _recruteurRepository.Save(new Recruteur(RECRUTEUR_CSHARP_5, "C#", "recruteur@soat.fr", 5));
+            _recruteurRepository.Save(new Recruteur(RECRUTEUR_CSHARP_3, "C#", "recruteur@soat.fr", 3));
+            _candidatRepository.Save(new Candidat( CANDIDAT_CSHARP_4, "C#", "candidat@mail.com", 4));
+            _candidatRepository.Save(new Candidat( CANDIDAT_JAVA_4, "Java", "candidat@mail.com", 4));
+
             _client = fixture.CreateClient();
         }
 
@@ -33,8 +47,8 @@ namespace PlanificationEntretien.Test.Controllers
         {
             var dateEtHeure = new DateTime(2022, 4, 5, 18, 0, 0);
             var planificationDto = new PlanificationDto(
-                new Candidat( Guid.NewGuid(), "C#", "candidat@mail.com", 4),
-                new Recruteur( Guid.NewGuid(), "C#", "recruteur@soat.fr", 5),
+                 CANDIDAT_CSHARP_4,
+                 RECRUTEUR_CSHARP_5,
                 dateEtHeure,
                 dateEtHeure);
             
@@ -62,8 +76,8 @@ namespace PlanificationEntretien.Test.Controllers
         {
             var dateEtHeure = new DateTime(2022, 4, 5, 18, 0, 0);
             var planificationDto = new PlanificationDto(
-                new Candidat(Guid.NewGuid(), "C#", "candidat@mail.com", 4),
-                new Recruteur( Guid.NewGuid(), "C#", "recruteur@soat.fr", 3),
+                CANDIDAT_CSHARP_4,
+                RECRUTEUR_CSHARP_3,
                 dateEtHeure,
                 dateEtHeure);
             
@@ -81,8 +95,8 @@ namespace PlanificationEntretien.Test.Controllers
         {
             var dateEtHeure = new DateTime(2022, 4, 5, 18, 0, 0);
             var planificationDto = new PlanificationDto(
-                new Candidat(Guid.NewGuid(), "C#", "candidat@mail.com", 4),
-                new Recruteur( Guid.NewGuid(), "Java", "recruteur@soat.fr", 5),
+                CANDIDAT_JAVA_4,
+                RECRUTEUR_CSHARP_5,
                 dateEtHeure,
                 dateEtHeure);
             
@@ -100,8 +114,8 @@ namespace PlanificationEntretien.Test.Controllers
         {
             var dateEtHeure = new DateTime(2022, 4, 5, 18, 0, 0);
             var planificationDto = new PlanificationDto(
-                new Candidat(Guid.NewGuid(), "C#", "candidat@mail.com", 4),
-                new Recruteur( Guid.NewGuid(), "Java", "recruteur@soat.fr", 5),
+                CANDIDAT_CSHARP_4,
+                RECRUTEUR_CSHARP_5,
                 dateEtHeure.AddDays(1),
                 dateEtHeure);
             
