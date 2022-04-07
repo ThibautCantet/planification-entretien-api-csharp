@@ -4,13 +4,15 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using MasterClass.WebApi.Controllers;
+using MasterClass.WebApi;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
-using PlanificationEntretien;
+using PlanificationEntretien.Controllers;
+using PlanificationEntretien.Models;
+using PlanificationEntretien.Repository;
 using Xunit;
 
-namespace MasterClass.WebApi.Test.Controllers
+namespace PlanificationEntretien.Test.Controllers
 {
     public class EntretienControllerTest : IClassFixture<WebApplicationFactory<Startup>>
     {

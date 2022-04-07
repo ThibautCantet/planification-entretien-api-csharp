@@ -1,4 +1,4 @@
-namespace PlanificationEntretien
+namespace PlanificationEntretien.Services
 {
     public interface IEmailService
     {

@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using PlanificationEntretien;
+using PlanificationEntretien.Models;
 
-namespace MasterClass.WebApi
+namespace PlanificationEntretien.Repository
 {
     public class EntretienRepository : IEntretienRepository
     {

@@ -1,7 +1,8 @@
 using System;
 using PlanificationEntretien;
+using PlanificationEntretien.Models;
 
-namespace MasterClass.WebApi
+namespace PlanificationEntretien.Services
 {
     public interface IEntretienService
     {

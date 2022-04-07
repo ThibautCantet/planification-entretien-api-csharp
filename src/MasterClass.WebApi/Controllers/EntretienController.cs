@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using PlanificationEntretien.Services;
 
-namespace MasterClass.WebApi.Controllers
+namespace PlanificationEntretien.Controllers
 {
     [Route("api/entretien")]
     public class EntretienController : ControllerBase

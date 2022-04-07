@@ -1,7 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
-using PlanificationEntretien;
+using PlanificationEntretien.Repository;
 
-namespace MasterClass.WebApi
+namespace PlanificationEntretien.Services
 {
     public static class ServiceExtensions
     {

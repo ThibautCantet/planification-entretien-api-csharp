@@ -1,7 +1,9 @@
 using System;
 using MasterClass.WebApi;
+using PlanificationEntretien.Models;
+using PlanificationEntretien.Repository;
 
-namespace PlanificationEntretien
+namespace PlanificationEntretien.Services
 {
     public class EntretienService : IEntretienService
     {

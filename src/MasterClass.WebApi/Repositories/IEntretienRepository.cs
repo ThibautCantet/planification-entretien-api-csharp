@@ -1,6 +1,7 @@
 using System.Collections.Generic;
+using PlanificationEntretien.Models;
 
-namespace PlanificationEntretien
+namespace PlanificationEntretien.Repository
 {
     public interface IEntretienRepository
     {

@@ -1,6 +1,5 @@
-using PlanificationEntretien;
 
-namespace MasterClass.WebApi
+namespace PlanificationEntretien.Services
 {
     public class EmailService : IEmailService
     {
