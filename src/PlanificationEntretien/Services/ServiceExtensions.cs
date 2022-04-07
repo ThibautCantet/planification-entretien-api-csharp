@@ -10,6 +10,7 @@ namespace PlanificationEntretien.Services
             services.AddSingleton<IEntretienService, EntretienService>();
             services.AddSingleton<IEntretienRepository, EntretienRepository>();
             services.AddSingleton<ICandidatRepository, CandidatRepository>();
+            services.AddSingleton<IRecruteurRepository, RecruteurRepository>();
             services.AddSingleton<IEmailService, EmailService>();
 
             return services;

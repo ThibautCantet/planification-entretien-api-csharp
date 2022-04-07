@@ -27,7 +27,7 @@ namespace PlanificationEntretien.Test.Controllers
         }
 
         [Fact]
-        public async Task PlanifierCandidat_Should_Return_Status201()
+        public async Task CreerCandidat_Should_Return_Status201()
         {
             var candidatDto = new Candidat(  Guid.NewGuid(), "C#", "candidat@mail.com", 4);
 
