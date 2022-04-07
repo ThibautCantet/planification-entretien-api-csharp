@@ -15,6 +15,8 @@
     &lt;TestId&gt;xUnit::2E402257-EDBD-49B5-B427-DD9552438A46::net6.0::PlanificationCandidat.Test.Controllers.CandidatControllerTest.PlanifierCandidat_Should_Return_Status201&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::2E402257-EDBD-49B5-B427-DD9552438A46::net6.0::PlanificationEntretien.Test.Controllers.CandidatControllerTest.PlanifierCandidat_Should_Return_Status201&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::2E402257-EDBD-49B5-B427-DD9552438A46::net6.0::PlanificationEntretien.Test.Controllers.RecruteurControllerTest&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::2E402257-EDBD-49B5-B427-DD9552438A46::net6.0::PlanificationEntretien.Test.Controllers.CandidatControllerTest.CreerCandidat_Should_Return_Status401_When_Missing_Language&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::2E402257-EDBD-49B5-B427-DD9552438A46::net6.0::PlanificationEntretien.Test.Controllers.CandidatControllerTest&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
 	
