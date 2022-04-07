@@ -1,6 +1,8 @@
+using System;
+
 namespace PlanificationEntretien.Models
 {
-    public record Candidat(string Language, string Email, int Xp)
+    public record Candidat(Guid Id, string Language, string Email, int Xp)
     {
     }
 }

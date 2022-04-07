@@ -33,7 +33,7 @@ namespace PlanificationEntretien.Test.Controllers
         {
             var dateEtHeure = new DateTime(2022, 4, 5, 18, 0, 0);
             var planificationDto = new PlanificationDto(
-                new Candidat("C#", "candidat@mail.com", 4),
+                new Candidat( Guid.NewGuid(), "C#", "candidat@mail.com", 4),
                 new Recruteur("C#", "recruteur@soat.fr", 5),
                 dateEtHeure,
                 dateEtHeure);
@@ -62,7 +62,7 @@ namespace PlanificationEntretien.Test.Controllers
         {
             var dateEtHeure = new DateTime(2022, 4, 5, 18, 0, 0);
             var planificationDto = new PlanificationDto(
-                new Candidat("C#", "candidat@mail.com", 4),
+                new Candidat(Guid.NewGuid(), "C#", "candidat@mail.com", 4),
                 new Recruteur("C#", "recruteur@soat.fr", 3),
                 dateEtHeure,
                 dateEtHeure);
@@ -81,7 +81,7 @@ namespace PlanificationEntretien.Test.Controllers
         {
             var dateEtHeure = new DateTime(2022, 4, 5, 18, 0, 0);
             var planificationDto = new PlanificationDto(
-                new Candidat("C#", "candidat@mail.com", 4),
+                new Candidat(Guid.NewGuid(), "C#", "candidat@mail.com", 4),
                 new Recruteur("Java", "recruteur@soat.fr", 5),
                 dateEtHeure,
                 dateEtHeure);
@@ -100,7 +100,7 @@ namespace PlanificationEntretien.Test.Controllers
         {
             var dateEtHeure = new DateTime(2022, 4, 5, 18, 0, 0);
             var planificationDto = new PlanificationDto(
-                new Candidat("C#", "candidat@mail.com", 4),
+                new Candidat(Guid.NewGuid(), "C#", "candidat@mail.com", 4),
                 new Recruteur("Java", "recruteur@soat.fr", 5),
                 dateEtHeure.AddDays(1),
                 dateEtHeure);

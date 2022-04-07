@@ -7,6 +7,8 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ebfa3370_002Db82c_002D4605_002Db1bd_002D08b7689670d4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="DiagnosticControllerTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;xUnit::2E402257-EDBD-49B5-B427-DD9552438A46::net6.0::PlanificationEntretien.Test.Controllers.EntretienControllerTest&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::2E402257-EDBD-49B5-B427-DD9552438A46::net6.0::PlanificationCandidat.Test.Controllers.CandidatControllerTest.PlanifierCandidat_Should_Return_Status201&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::2E402257-EDBD-49B5-B427-DD9552438A46::net6.0::PlanificationEntretien.Test.Controllers.CandidatControllerTest.PlanifierCandidat_Should_Return_Status201&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
 	
