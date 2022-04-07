@@ -21,7 +21,7 @@ namespace PlanificationEntretien
                 candidat.Language.Equals(recruteur.Language)
                 && recruteur.Xp > candidat.Xp)
             {
-                var entretien = new Entretien(disponibiliteCandidat, candidat.Email, recruteur.Email);
+                var entretien = new Entretien(Guid.NewGuid(), disponibiliteCandidat, candidat.Email, recruteur.Email);
                 _emailService.SendToCandidat(candidat.Email);
                 _emailService.SendToRecruteur(recruteur.Email);
 

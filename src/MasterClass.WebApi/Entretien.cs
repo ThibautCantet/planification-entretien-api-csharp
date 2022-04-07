@@ -2,5 +2,5 @@ using System;
 
 namespace PlanificationEntretien
 {
-    public record Entretien(DateTime DateEtHeure, string EmailCandidat, string EmailRecruteur);
+    public record Entretien(Guid Id, DateTime DateEtHeure, string EmailCandidat, string EmailRecruteur);
 }

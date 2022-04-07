@@ -1,10 +1,12 @@
 using System;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using MasterClass.WebApi.Controllers;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.Extensions.DependencyInjection;
 using PlanificationEntretien;
 using Xunit;
 
@@ -13,9 +15,12 @@ namespace MasterClass.WebApi.Test.Controllers
     public class EntretienControllerTest : IClassFixture<WebApplicationFactory<Startup>>
     {
         private readonly HttpClient _client;
+        private readonly IEntretienRepository _entretienRepository;
 
         public EntretienControllerTest(WebApplicationFactory<Startup> fixture)
         {
+            var serviceClientProvider = fixture.Services;
+            _entretienRepository = serviceClientProvider.GetService<IEntretienRepository>();
             _client = fixture.CreateClient();
         }
 
@@ -34,8 +39,18 @@ namespace MasterClass.WebApi.Test.Controllers
 
             Assert.Equal(HttpStatusCode.Created, response.StatusCode);
             
-            var readFromJsonAsync = await response.Content.ReadFromJsonAsync<Entretien>();
-            Assert.Equal(new Entretien(dateEtHeure, "candidat@mail.com", "recruteur@soat.fr"), readFromJsonAsync);
+            var entretien = await response.Content.ReadFromJsonAsync<Entretien>();
+            Assert.Equal(dateEtHeure, entretien.DateEtHeure);
+            Assert.Equal("candidat@mail.com", entretien.EmailCandidat);
+            Assert.Equal("recruteur@soat.fr", entretien.EmailRecruteur);
+
+            
+            var entretiens = _entretienRepository.FindAll();
+            Assert.Equal(entretiens.Count(), 1);
+            entretien = entretiens.First();
+            Assert.Equal(dateEtHeure, entretien.DateEtHeure);
+            Assert.Equal("candidat@mail.com", entretien.EmailCandidat);
+            Assert.Equal("recruteur@soat.fr", entretien.EmailRecruteur);
         }
         
         [Fact]
@@ -52,6 +67,9 @@ namespace MasterClass.WebApi.Test.Controllers
             var response = await _client.PostAsync("api/entretien", content);
 
             Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+            
+            var entretiens = _entretienRepository.FindAll();
+            Assert.Equal(entretiens.Count(), 0);
         }
         
         [Fact]
@@ -68,6 +86,9 @@ namespace MasterClass.WebApi.Test.Controllers
             var response = await _client.PostAsync("api/entretien", content);
 
             Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+            
+            var entretiens = _entretienRepository.FindAll();
+            Assert.Equal(entretiens.Count(), 0);
         }
         
         [Fact]
@@ -84,6 +105,9 @@ namespace MasterClass.WebApi.Test.Controllers
             var response = await _client.PostAsync("api/entretien", content);
 
             Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+            
+            var entretiens = _entretienRepository.FindAll();
+            Assert.Equal(entretiens.Count(), 0);
         }
     }
 }
