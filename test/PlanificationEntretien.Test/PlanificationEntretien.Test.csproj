@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\MasterClass.WebApi\MasterClass.WebApi.csproj" />
+    <ProjectReference Include="..\..\src\PlanificationEntretien\PlanificationEntretien.csproj" />
   </ItemGroup>
 
 </Project>

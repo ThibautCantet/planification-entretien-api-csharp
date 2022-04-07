@@ -7,5 +7,6 @@ namespace PlanificationEntretien.Repository
     {
         IEnumerable<Entretien> FindAll();
         Entretien Save(Entretien entretien);
+        void Clear();
     }
 }

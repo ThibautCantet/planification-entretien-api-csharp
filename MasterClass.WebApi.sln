@@ -5,11 +5,11 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2913C553-1F17-47A1-8233-B92430679A5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterClass.WebApi", "src\MasterClass.WebApi\MasterClass.WebApi.csproj", "{378131A8-17EE-4713-BF58-05BAF0DA7760}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanificationEntretien", "src\PlanificationEntretien\PlanificationEntretien.csproj", "{378131A8-17EE-4713-BF58-05BAF0DA7760}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{B897807B-BD2E-4A1B-B195-2CDDBB09E7BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterClass.WebApi.Test", "test\MasterClass.WebApi.Test\MasterClass.WebApi.Test.csproj", "{2E402257-EDBD-49B5-B427-DD9552438A46}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanificationEntretien.Test", "test\PlanificationEntretien.Test\PlanificationEntretien.Test.csproj", "{2E402257-EDBD-49B5-B427-DD9552438A46}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
