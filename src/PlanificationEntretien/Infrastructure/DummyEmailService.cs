@@ -1,7 +1,8 @@
+using PlanificationEntretien.UserCase;
 
-namespace PlanificationEntretien.Services
+namespace PlanificationEntretien.Infrastructure
 {
-    public class EmailService : IEmailService
+    public class DummyEmailService : IEmailService
     {
         public void SendToCandidat(string email)
         {

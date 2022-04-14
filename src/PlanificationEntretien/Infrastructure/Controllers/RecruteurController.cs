@@ -1,10 +1,10 @@
 using System;
 using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Mvc;
-using PlanificationEntretien.Models;
-using PlanificationEntretien.Repository;
+using PlanificationEntretien.Infrastructure.Models;
+using PlanificationEntretien.UserCase;
 
-namespace PlanificationEntretien.Controllers
+namespace PlanificationEntretien.Infrastructure.Controllers
 {
     [Route("api/recruteur")]
     public class RecruteurController : ControllerBase

@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using PlanificationEntretien.Models;
+using PlanificationEntretien.Infrastructure.Models;
 
-namespace PlanificationEntretien.Repository;
+namespace PlanificationEntretien.UserCase;
 
 public interface IRecruteurRepository
 {

@@ -4,11 +4,10 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using MasterClass.WebApi;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
-using PlanificationEntretien.Models;
-using PlanificationEntretien.Repository;
+using PlanificationEntretien.Infrastructure.Models;
+using PlanificationEntretien.UserCase;
 using Xunit;
 
 namespace PlanificationEntretien.Test.Controllers

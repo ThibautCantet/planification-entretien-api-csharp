@@ -1,18 +1,17 @@
 using System;
 using System.Collections.Generic;
-using PlanificationEntretien.Models;
-using PlanificationEntretien.Repository;
+using PlanificationEntretien.Infrastructure.Models;
 
-namespace PlanificationEntretien.Services
+namespace PlanificationEntretien.UserCase
 {
-    public class EntretienService : IEntretienService
+    public class PlanifierEntretien : IPlanifierEntretien
     {
         private readonly IEntretienRepository _entretienRepository;
         private readonly IEmailService _emailService;
         private readonly IRecruteurRepository _recruteurRepository;
         private readonly ICandidatRepository _candidatRepository;
 
-        public EntretienService(IEntretienRepository entretienRepository, IEmailService emailService,
+        public PlanifierEntretien(IEntretienRepository entretienRepository, IEmailService emailService,
             IRecruteurRepository recruteurRepository, ICandidatRepository candidatRepository)
         {
             _entretienRepository = entretienRepository;
@@ -21,7 +20,7 @@ namespace PlanificationEntretien.Services
             _candidatRepository = candidatRepository;
         }
 
-        public Entretien Planifier(Guid candidatId, Guid recruteurId, DateTime disponibiliteCandidat,
+        public Entretien Execute(Guid candidatId, Guid recruteurId, DateTime disponibiliteCandidat,
             DateTime disponibiliteRecruteur)
         {
             var recruteur = _recruteurRepository.FindById(recruteurId);

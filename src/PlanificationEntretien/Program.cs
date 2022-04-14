@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace MasterClass.WebApi
+namespace PlanificationEntretien
 {
     public class Program
     {
