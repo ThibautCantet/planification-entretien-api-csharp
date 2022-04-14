@@ -1,18 +1,22 @@
 using System;
 using System.Collections.Generic;
-using PlanificationEntretien.Infrastructure.Models;
+using PlanificationEntretien.Domain;
 using PlanificationEntretien.UserCase;
+using infra = PlanificationEntretien.Infrastructure.Models;
 
 namespace PlanificationEntretien.Infrastructure.Repositories
 {
     public class RecruteurRepository : IRecruteurRepository
     {
-        private readonly IDictionary<Guid, Recruteur> _recruteurs = new Dictionary<Guid, Recruteur>();
+        private readonly IDictionary<Guid, infra.Recruteur> _recruteurs = new Dictionary<Guid, infra.Recruteur>();
         private readonly object _lock = new object();
 
         public IEnumerable<Recruteur> FindAll()
         {
-            return _recruteurs.Values;
+            foreach (var candidat in _recruteurs.Values)
+            {
+                yield return new Recruteur(candidat.Id, candidat.Language, candidat.Email, candidat.Xp);
+            }
         }
 
         public Recruteur Save(Recruteur recruteur)
@@ -24,14 +28,15 @@ namespace PlanificationEntretien.Infrastructure.Repositories
                     return null;
                 }
 
-                _recruteurs[recruteur.Id] = recruteur;
+                _recruteurs[recruteur.Id] = new infra.Recruteur(recruteur.Id, recruteur.Language, recruteur.Email, recruteur.Xp);
                 return recruteur;
             }
         }
 
         public Recruteur FindById(Guid id)
         {
-            return _recruteurs[id];
+            var recruteur = _recruteurs[id];
+            return new Recruteur(recruteur.Id, recruteur.Language, recruteur.Email, recruteur.Xp);
         }
 
         public void Clear()

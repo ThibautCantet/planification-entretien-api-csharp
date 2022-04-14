@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using PlanificationEntretien.Infrastructure.Models;
+using PlanificationEntretien.Domain;
 
 namespace PlanificationEntretien.UserCase;
 
