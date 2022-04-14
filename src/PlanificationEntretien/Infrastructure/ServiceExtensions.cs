@@ -1,4 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
+using PlanificationEntretien.Domain;
+using PlanificationEntretien.Domain.Ports;
 using PlanificationEntretien.Infrastructure.Repositories;
 using PlanificationEntretien.UserCase;
 

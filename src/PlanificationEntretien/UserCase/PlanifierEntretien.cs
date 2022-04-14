@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using PlanificationEntretien.Domain;
+using PlanificationEntretien.Domain.Entities;
+using PlanificationEntretien.Domain.Ports;
 
 namespace PlanificationEntretien.UserCase
 {

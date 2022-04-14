@@ -1,5 +1,5 @@
 using System;
-using PlanificationEntretien.Domain;
+using PlanificationEntretien.Domain.Entities;
 
 namespace PlanificationEntretien.UserCase
 {

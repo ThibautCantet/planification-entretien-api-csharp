@@ -1,4 +1,4 @@
-namespace PlanificationEntretien.UserCase
+namespace PlanificationEntretien.Domain.Ports
 {
     public interface IEmailService
     {

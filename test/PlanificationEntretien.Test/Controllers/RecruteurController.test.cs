@@ -6,9 +6,11 @@ using System.Net.Http.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
-using PlanificationEntretien.Infrastructure.Models;
+using PlanificationEntretien.Domain;
+using PlanificationEntretien.Domain.Ports;
 using PlanificationEntretien.UserCase;
 using Xunit;
+using Recruteur = PlanificationEntretien.Infrastructure.Models.Recruteur;
 
 namespace PlanificationEntretien.Test.Controllers
 {

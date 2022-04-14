@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
 using PlanificationEntretien.Domain;
+using PlanificationEntretien.Domain.Entities;
+using PlanificationEntretien.Domain.Ports;
 using PlanificationEntretien.UserCase;
 using Xunit;
 
