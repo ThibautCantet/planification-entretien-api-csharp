@@ -1,4 +1,4 @@
-namespace PlanificationEntretien.UserCase
+namespace PlanificationEntretien.Domain
 {
     public interface IEmailService
     {

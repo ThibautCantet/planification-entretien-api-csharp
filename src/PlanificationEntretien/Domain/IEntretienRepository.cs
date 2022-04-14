@@ -1,7 +1,6 @@
 using System.Collections.Generic;
-using PlanificationEntretien.Domain;
 
-namespace PlanificationEntretien.UserCase
+namespace PlanificationEntretien.Domain
 {
     public interface IEntretienRepository
     {

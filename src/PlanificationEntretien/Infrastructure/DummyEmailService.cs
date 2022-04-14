@@ -1,3 +1,4 @@
+using PlanificationEntretien.Domain;
 using PlanificationEntretien.UserCase;
 
 namespace PlanificationEntretien.Infrastructure

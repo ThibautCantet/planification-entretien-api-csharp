@@ -1,7 +1,6 @@
 using System;
-using PlanificationEntretien.Domain;
 
-namespace PlanificationEntretien.UserCase
+namespace PlanificationEntretien.Domain
 {
     public interface IPlanifierEntretien
     {
