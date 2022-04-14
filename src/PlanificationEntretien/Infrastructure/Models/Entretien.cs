@@ -1,6 +1,6 @@
 using System;
 
-namespace PlanificationEntretien.Models
+namespace PlanificationEntretien.Infrastructure.Models
 {
     public record Entretien(Guid Id, DateTime DateEtHeure, string EmailCandidat, string EmailRecruteur);
 }

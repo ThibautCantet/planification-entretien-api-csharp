@@ -1,6 +1,6 @@
 using System;
 
-namespace PlanificationEntretien.Models
+namespace PlanificationEntretien.Infrastructure.Models
 {
     public record Candidat(Guid Id, string Language, string Email, int? Xp);
 }
