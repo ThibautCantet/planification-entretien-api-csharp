@@ -10,6 +10,8 @@ namespace PlanificationEntretien.Infrastructure
         public static IServiceCollection AddService(this IServiceCollection services)
         {
             services.AddSingleton<IPlanifierEntretien, PlanifierEntretien>();
+            services.AddSingleton<ICreerCandidat, CreerCandidat>();
+            services.AddSingleton<ICreerRecruteur, CreerRecruteur>();
             services.AddSingleton<IEntretienRepository, EntretienRepository>();
             services.AddSingleton<ICandidatRepository, CandidatRepository>();
             services.AddSingleton<IRecruteurRepository, RecruteurRepository>();
