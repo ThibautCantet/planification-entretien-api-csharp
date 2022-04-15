@@ -12,6 +12,8 @@ namespace PlanificationEntretien.Infrastructure
         {
             services.AddSingleton<IPlanifierEntretien, PlanifierEntretien>();
             services.AddSingleton<IListerEntretiens, ListerEntretiens>();
+            services.AddSingleton<ICreerCandidat, CreerCandidat>();
+            services.AddSingleton<ICreerRecruteur, CreerRecruteur>();
             services.AddSingleton<IEntretienRepository, EntretienRepository>();
             services.AddSingleton<ICandidatRepository, CandidatRepository>();
             services.AddSingleton<IRecruteurRepository, RecruteurRepository>();
