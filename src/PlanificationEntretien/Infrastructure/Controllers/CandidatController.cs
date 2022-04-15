@@ -2,7 +2,6 @@ using System;
 using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Mvc;
 using PlanificationEntretien.Domain;
-using PlanificationEntretien.UserCase;
 
 namespace PlanificationEntretien.Infrastructure.Controllers
 {
@@ -14,7 +13,7 @@ namespace PlanificationEntretien.Infrastructure.Controllers
         public CandidatController(ICandidatRepository candidatRepository) => _candidatRepository = candidatRepository;
 
         [HttpPost]
-        public IActionResult Creer([FromBody] Candidat candidat)
+        public IActionResult Creer([FromBody] CandidatDto candidat)
         {
             String EMAIL_REGEX = "^[\\w-_.+]*[\\w-_.]@([\\w]+\\.)+[\\w]+[\\w]$";
             MatchCollection mc = Regex.Matches(candidat.Email, EMAIL_REGEX);
@@ -27,7 +26,7 @@ namespace PlanificationEntretien.Infrastructure.Controllers
                 return BadRequest();
             }
 
-            var result = _candidatRepository.Save(candidat);
+            var result = _candidatRepository.Save(new Candidat(Guid.NewGuid(), candidat.Language, candidat.Email, candidat.Xp));
             if (result == null)
             {
                 return BadRequest();

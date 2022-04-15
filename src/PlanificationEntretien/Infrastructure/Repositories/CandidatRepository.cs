@@ -1,14 +1,13 @@
 using System;
 using System.Collections.Generic;
 using PlanificationEntretien.Domain;
-using PlanificationEntretien.UserCase;
-using infra = PlanificationEntretien.Infrastructure.Models;
+using PlanificationEntretien.Infrastructure.Models;
 
 namespace PlanificationEntretien.Infrastructure.Repositories
 {
     public class CandidatRepository : ICandidatRepository
     {
-        private readonly IDictionary<Guid, infra.Candidat> _candidats = new Dictionary<Guid, infra.Candidat>();
+        private readonly IDictionary<Guid, InMemoryCandidat> _candidats = new Dictionary<Guid, InMemoryCandidat>();
         private readonly object _lock = new object();
 
         public IEnumerable<Candidat> FindAll()
@@ -28,7 +27,7 @@ namespace PlanificationEntretien.Infrastructure.Repositories
                     return null;
                 }
 
-                _candidats[candidat.Id] = new infra.Candidat(candidat.Id, candidat.Language, candidat.Email, candidat.Xp);
+                _candidats[candidat.Id] = new InMemoryCandidat(candidat.Id, candidat.Language, candidat.Email, candidat.Xp);
                 return candidat;
             }
         }

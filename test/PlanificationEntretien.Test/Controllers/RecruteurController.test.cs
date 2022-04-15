@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
 using PlanificationEntretien.Domain;
+using PlanificationEntretien.Infrastructure.Models;
 using PlanificationEntretien.UserCase;
 using Xunit;
-using Recruteur = PlanificationEntretien.Infrastructure.Models.Recruteur;
 
 namespace PlanificationEntretien.Test.Controllers
 {
@@ -29,7 +29,7 @@ namespace PlanificationEntretien.Test.Controllers
         [Fact]
         public async Task CreerRecruteur_Should_Return_Status201()
         {
-            var recruteurDto = new Recruteur( Guid.NewGuid(), "C#", "recruteur@soat.fr", 4);
+            var recruteurDto = new RecruteurDto( "C#", "recruteur@soat.fr", 4);
 
             var content = JsonContent.Create(recruteurDto);
             var response = await _client.PostAsync("api/recruteur", content);
@@ -47,7 +47,7 @@ namespace PlanificationEntretien.Test.Controllers
         [Fact]
         public async Task CreerRecruteur_Should_Return_Status401_When_Missing_Language()
         {
-            var recruteurDto = new Recruteur( Guid.NewGuid(), "", "recruteur@soat.fr", 4);
+            var recruteurDto = new RecruteurDto("", "recruteur@soat.fr", 4);
 
             var content = JsonContent.Create(recruteurDto);
             var response = await _client.PostAsync("api/recruteur", content);
@@ -61,7 +61,7 @@ namespace PlanificationEntretien.Test.Controllers
         [Fact]
         public async Task CreerRecruteur_Should_Return_Status401_When_Missing_Email()
         {
-            var recruteurDto = new Recruteur( Guid.NewGuid(), "C#", "", 4);
+            var recruteurDto = new RecruteurDto("C#", "", 4);
 
             var content = JsonContent.Create(recruteurDto);
             var response = await _client.PostAsync("api/recruteur", content);
@@ -75,7 +75,7 @@ namespace PlanificationEntretien.Test.Controllers
         [Fact]
         public async Task CreerRecruteur_Should_Return_Status401_When_Missing_Xp()
         {
-            var recruteurDto = new Recruteur( Guid.NewGuid(), "C#", "recruteur@soat.fr", null);
+            var recruteurDto = new RecruteurDto("C#", "recruteur@soat.fr", null);
 
             var content = JsonContent.Create(recruteurDto);
             var response = await _client.PostAsync("api/recruteur", content);
@@ -89,7 +89,7 @@ namespace PlanificationEntretien.Test.Controllers
         [Fact]
         public async Task CreerRecruteur_Should_Return_Status401_When_Invalid_Email()
         {
-            var recruteurDto = new Recruteur( Guid.NewGuid(), "C#", "recruteur@mail", 10);
+            var recruteurDto = new RecruteurDto("C#", "recruteur@mail", 10);
 
             var content = JsonContent.Create(recruteurDto);
             var response = await _client.PostAsync("api/recruteur", content);
@@ -103,7 +103,7 @@ namespace PlanificationEntretien.Test.Controllers
         [Fact]
         public async Task CreerRecruteur_Should_Return_Status401_When_Xp_Is_Negative()
         {
-            var recruteurDto = new Recruteur( Guid.NewGuid(), "C#", "recruteur@soat.fr", -1);
+            var recruteurDto = new RecruteurDto("C#", "recruteur@soat.fr", -1);
 
             var content = JsonContent.Create(recruteurDto);
             var response = await _client.PostAsync("api/recruteur", content);
