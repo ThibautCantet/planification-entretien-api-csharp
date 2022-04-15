@@ -10,7 +10,7 @@ namespace PlanificationEntretien.Infrastructure.Repositories
 {
     public class EntretienRepository : IEntretienRepository
     {
-        private readonly IDictionary<Guid, infra.Entretien> _entretiens = new Dictionary<Guid, infra.Entretien>();
+        private readonly IDictionary<Guid, infra.InMemoryEntretien> _entretiens = new Dictionary<Guid, infra.InMemoryEntretien>();
         private readonly object _lock = new object();
 
         public IEnumerable<Entretien> FindAll()
@@ -30,7 +30,7 @@ namespace PlanificationEntretien.Infrastructure.Repositories
                     return null;
                 }
 
-                _entretiens[entretien.Id] = new infra.Entretien(entretien.Id, entretien.DateEtHeure, entretien.EmailCandidat, entretien.EmailRecruteur);
+                _entretiens[entretien.Id] = new infra.InMemoryEntretien(entretien.Id, entretien.DateEtHeure, entretien.EmailCandidat, entretien.EmailRecruteur);
                 return entretien;
             }
         }

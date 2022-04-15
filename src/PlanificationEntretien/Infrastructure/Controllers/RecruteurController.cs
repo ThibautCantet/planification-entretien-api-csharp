@@ -1,10 +1,9 @@
 using System;
 using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Mvc;
-using PlanificationEntretien.Domain;
 using PlanificationEntretien.Domain.Entities;
 using PlanificationEntretien.Domain.Ports;
-using PlanificationEntretien.UserCase;
+using PlanificationEntretien.Test.Controllers;
 
 namespace PlanificationEntretien.Infrastructure.Controllers
 {
@@ -16,7 +15,7 @@ namespace PlanificationEntretien.Infrastructure.Controllers
         public RecruteurController(IRecruteurRepository recruteurRepository) => _recruteurRepository = recruteurRepository;
         
         [HttpPost]
-        public IActionResult Creer([FromBody] Recruteur recruteur)
+        public IActionResult Creer([FromBody] RecruteurDto recruteur)
         {
             String EMAIL_REGEX = "^[\\w-_.+]*[\\w-_.]@([\\w]+\\.)+[\\w]+[\\w]$";
             MatchCollection mc = Regex.Matches(recruteur.Email, EMAIL_REGEX);
@@ -29,7 +28,7 @@ namespace PlanificationEntretien.Infrastructure.Controllers
                 return BadRequest();
             }
             
-            var result = _recruteurRepository.Save(recruteur);
+            var result = _recruteurRepository.Save(new Recruteur(Guid.NewGuid(), recruteur.Language, recruteur.Email, recruteur.Xp));
             if (result == null)
             {
                 return BadRequest();

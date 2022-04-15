@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -6,10 +5,8 @@ using System.Net.Http.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
-using PlanificationEntretien.Domain;
-using PlanificationEntretien.Domain.Entities;
 using PlanificationEntretien.Domain.Ports;
-using PlanificationEntretien.UserCase;
+using PlanificationEntretien.Infrastructure.Controllers;
 using Xunit;
 
 namespace PlanificationEntretien.Test.Controllers
@@ -30,7 +27,7 @@ namespace PlanificationEntretien.Test.Controllers
         [Fact]
         public async Task CreerCandidat_Should_Return_Status201()
         {
-            var candidatDto = new Candidat(  Guid.NewGuid(), "C#", "candidat@mail.com", 4);
+            var candidatDto = new CandidatDto(  "C#", "candidat@mail.com", 4);
 
             var content = JsonContent.Create(candidatDto);
             var response = await _client.PostAsync("api/candidat", content);
@@ -48,7 +45,7 @@ namespace PlanificationEntretien.Test.Controllers
         [Fact]
         public async Task CreerCandidat_Should_Return_Status401_When_Missing_Language()
         {
-            var candidatDto = new Candidat(  Guid.NewGuid(), "", "candidat@mail.com", 4);
+            var candidatDto = new CandidatDto(  "", "candidat@mail.com", 4);
 
             var content = JsonContent.Create(candidatDto);
             var response = await _client.PostAsync("api/candidat", content);
@@ -62,7 +59,7 @@ namespace PlanificationEntretien.Test.Controllers
         [Fact]
         public async Task CreerCandidat_Should_Return_Status401_When_Missing_Email()
         {
-            var candidatDto = new Candidat(  Guid.NewGuid(), "C#", "", 4);
+            var candidatDto = new CandidatDto(  "C#", "", 4);
 
             var content = JsonContent.Create(candidatDto);
             var response = await _client.PostAsync("api/candidat", content);
@@ -76,7 +73,7 @@ namespace PlanificationEntretien.Test.Controllers
         [Fact]
         public async Task CreerCandidat_Should_Return_Status401_When_Missing_Xp()
         {
-            var candidatDto = new Candidat(  Guid.NewGuid(), "C#", "candidat@mail.com", null);
+            var candidatDto = new CandidatDto(  "C#", "candidat@mail.com", null);
 
             var content = JsonContent.Create(candidatDto);
             var response = await _client.PostAsync("api/candidat", content);
@@ -90,7 +87,7 @@ namespace PlanificationEntretien.Test.Controllers
         [Fact]
         public async Task CreerCandidat_Should_Return_Status401_When_Invalid_Email()
         {
-            var candidatDto = new Candidat(  Guid.NewGuid(), "C#", "candidat@mail", 10);
+            var candidatDto = new CandidatDto(  "C#", "candidat@mail", 10);
 
             var content = JsonContent.Create(candidatDto);
             var response = await _client.PostAsync("api/candidat", content);
@@ -104,7 +101,7 @@ namespace PlanificationEntretien.Test.Controllers
         [Fact]
         public async Task CreerCandidat_Should_Return_Status401_When_Xp_Is_Negative()
         {
-            var candidatDto = new Candidat(  Guid.NewGuid(), "C#", "candidat@mail.com", -1);
+            var candidatDto = new CandidatDto(  "C#", "candidat@mail.com", -1);
 
             var content = JsonContent.Create(candidatDto);
             var response = await _client.PostAsync("api/candidat", content);
