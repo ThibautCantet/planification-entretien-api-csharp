@@ -9,7 +9,14 @@ namespace PlanificationEntretien.Controllers
         private IEntretienService _entretienService;
 
         public EntretienController(IEntretienService entretienService) => _entretienService = entretienService;
-        
+
+
+        [HttpGet]
+        public IActionResult Lister()
+        {
+            return Ok(_entretienService.Lister());
+        }
+
         [HttpPost]
         public IActionResult Planifier([FromBody] PlanificationDto planificationDto)
         {

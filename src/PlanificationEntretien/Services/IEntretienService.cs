@@ -1,5 +1,5 @@
 using System;
-using PlanificationEntretien;
+using System.Collections.Generic;
 using PlanificationEntretien.Models;
 
 namespace PlanificationEntretien.Services
@@ -8,5 +8,7 @@ namespace PlanificationEntretien.Services
     {
         Entretien Planifier(Guid candidat, Guid recruteur, DateTime disponibiliteCandidat,
             DateTime disponibiliteRecruteur);
+
+        IEnumerable<Entretien> Lister();
     }
 }

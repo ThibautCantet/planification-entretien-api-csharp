@@ -1,5 +1,5 @@
 using System;
-using MasterClass.WebApi;
+using System.Collections.Generic;
 using PlanificationEntretien.Models;
 using PlanificationEntretien.Repository;
 
@@ -39,6 +39,11 @@ namespace PlanificationEntretien.Services
             }
 
             return null;
+        }
+
+        public IEnumerable<Entretien> Lister()
+        {
+            return _entretienRepository.FindAll();
         }
     }
 }

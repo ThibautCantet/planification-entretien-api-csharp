@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -126,6 +127,23 @@ namespace PlanificationEntretien.Test.Controllers
             
             var entretiens = _entretienRepository.FindAll();
             Assert.Equal(entretiens.Count(), 0);
+        }
+        
+        [Fact]
+        public async Task ListerEntretiens_Should_Return_Status200()
+        {
+            var entretien = new Entretien(Guid.NewGuid(),
+                new DateTime(2022, 4, 5, 18, 0, 0),
+                "candidat@mail.com",
+                "recruteur@soat.fr");
+            _entretienRepository.Save(entretien);
+            
+            var response = await _client.GetAsync("api/entretien");
+
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+            
+            var entretiens = await response.Content.ReadFromJsonAsync<List<Entretien>>();
+            Assert.Contains(entretien, entretiens);
         }
     }
 }
