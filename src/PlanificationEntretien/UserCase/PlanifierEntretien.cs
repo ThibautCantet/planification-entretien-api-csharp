@@ -40,9 +40,5 @@ namespace PlanificationEntretien.UserCase
             return null;
         }
 
-        public IEnumerable<Entretien> Lister()
-        {
-            return _entretienRepository.FindAll();
-        }
     }
 }
