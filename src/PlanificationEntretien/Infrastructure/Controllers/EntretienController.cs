@@ -1,3 +1,4 @@
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using PlanificationEntretien.Domain;
 using PlanificationEntretien.Domain.Ports;
@@ -21,7 +22,7 @@ namespace PlanificationEntretien.Infrastructure.Controllers
         [HttpGet]
         public IActionResult Lister()
         {
-            return Ok(_listerEntretiens.Execute());
+            return Ok(_listerEntretiens.Execute().Select(result => new EntretienDto(result.Id, result.DateEtHeure, result.EmailCandidat, result.EmailRecruteur)));
         }
 
         [HttpPost]
@@ -32,7 +33,7 @@ namespace PlanificationEntretien.Infrastructure.Controllers
             {
                 return BadRequest();
             }
-            return Created("", result);
+            return Created("", new EntretienDto(result.Id, result.DateEtHeure, result.EmailCandidat, result.EmailRecruteur));
         }
     }
 }

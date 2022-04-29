@@ -28,11 +28,9 @@ namespace PlanificationEntretien.UserCase
             var recruteur = _recruteurRepository.FindById(recruteurId);
             var candidat = _candidatRepository.FindById(candidatId);
             
-            if (disponibiliteCandidat.Date.Equals(disponibiliteRecruteur.Date) &&
-                candidat.Language.Equals(recruteur.Language)
-                && recruteur.Xp > candidat.Xp)
+            var entretien = new Entretien(candidat, recruteur);
+            if (entretien.Planifier(disponibiliteCandidat, disponibiliteRecruteur))
             {
-                var entretien = new Entretien(Guid.NewGuid(), disponibiliteCandidat, candidat.Email, recruteur.Email);
                 _emailService.SendToCandidat(candidat.Email);
                 _emailService.SendToRecruteur(recruteur.Email);
 

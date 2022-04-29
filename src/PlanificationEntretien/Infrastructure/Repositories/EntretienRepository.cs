@@ -17,7 +17,7 @@ namespace PlanificationEntretien.Infrastructure.Repositories
         {
             foreach (var entretien in _entretiens.Values)
             {
-                yield return new Entretien(entretien.Id, entretien.DateEtHeure, entretien.EmailCandidat, entretien.EmailRecruteur);
+                yield return Entretien.of(entretien.Id, entretien.DateEtHeure, entretien.EmailCandidat, entretien.EmailRecruteur);
             }
         }
 

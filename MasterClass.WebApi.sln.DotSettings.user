@@ -1,11 +1,12 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=42d75467_002De54f_002D401e_002Dae4e_002D16ab5322cbd5/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="EntretienControllerTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=42d75467_002De54f_002D401e_002Dae4e_002D16ab5322cbd5/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="EntretienControllerTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;ProjectFolder&gt;2E402257-EDBD-49B5-B427-DD9552438A46/d:Controllers&lt;/ProjectFolder&gt;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=d2841183_002Db778_002D45da_002D8e7d_002D8ce69605fce2/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="PlanifierEntretien_Status201" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;TestAncestor&gt;
-    &lt;TestId&gt;xUnit::2E402257-EDBD-49B5-B427-DD9552438A46::net5.0::MasterClass.WebApi.Test.Controllers.EntretienControllerTest.PlanifierEntretien_Status201&lt;/TestId&gt;
-  &lt;/TestAncestor&gt;
+  &lt;Project Location="/Users/thibautcantet/test/planification-entretien-api-csharp/test/PlanificationEntretien.Test" Presentation="&amp;lt;test&amp;gt;\&amp;lt;PlanificationEntretien.Test&amp;gt;" /&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=d46ed4d5_002D6d12_002D4abf_002D9a7c_002D08c22d373bad/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from &amp;lt;test&amp;gt;\&amp;lt;PlanificationEntretien.Test&amp;gt; #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Project Location="/Users/thibautcantet/test/planification-entretien-api-csharp/test/PlanificationEntretien.Test" Presentation="&amp;lt;test&amp;gt;\&amp;lt;PlanificationEntretien.Test&amp;gt;" /&gt;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ebfa3370_002Db82c_002D4605_002Db1bd_002D08b7689670d4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DiagnosticControllerTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
@@ -16,6 +17,9 @@
     &lt;TestId&gt;xUnit::2E402257-EDBD-49B5-B427-DD9552438A46::net6.0::PlanificationEntretien.Test.Controllers.CandidatControllerTest.CreerCandidat_Should_Return_Status401_When_Missing_Language&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::2E402257-EDBD-49B5-B427-DD9552438A46::net6.0::PlanificationEntretien.Test.Controllers.CandidatControllerTest&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=fccfaee7_002D3870_002D44f8_002D8c5b_002D3f917e94cea6/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;test&amp;gt;\&amp;lt;PlanificationEntretien.Test&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Project Location="/Users/thibautcantet/test/planification-entretien-api-csharp/test/PlanificationEntretien.Test" Presentation="&amp;lt;test&amp;gt;\&amp;lt;PlanificationEntretien.Test&amp;gt;" /&gt;
 &lt;/SessionState&gt;</s:String>
 	
 	

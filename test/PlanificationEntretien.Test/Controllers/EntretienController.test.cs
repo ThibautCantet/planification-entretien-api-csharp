@@ -7,11 +7,9 @@ using System.Net.Http.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
-using PlanificationEntretien.Infrastructure.Controllers;
-using PlanificationEntretien.Domain;
 using PlanificationEntretien.Domain.Entities;
 using PlanificationEntretien.Domain.Ports;
-using PlanificationEntretien.UserCase;
+using PlanificationEntretien.Infrastructure.Controllers;
 using Xunit;
 
 namespace PlanificationEntretien.Test.Controllers
@@ -59,7 +57,7 @@ namespace PlanificationEntretien.Test.Controllers
 
             Assert.Equal(HttpStatusCode.Created, response.StatusCode);
             
-            var entretien = await response.Content.ReadFromJsonAsync<Entretien>();
+            var entretien = await response.Content.ReadFromJsonAsync<EntretienDto>();
             Assert.Equal(dateEtHeure, entretien.DateEtHeure);
             Assert.Equal("candidat@mail.com", entretien.EmailCandidat);
             Assert.Equal("recruteur@soat.fr", entretien.EmailRecruteur);
@@ -67,10 +65,10 @@ namespace PlanificationEntretien.Test.Controllers
             
             var entretiens = _entretienRepository.FindAll();
             Assert.Equal(entretiens.Count(), 1);
-            entretien = entretiens.First();
-            Assert.Equal(dateEtHeure, entretien.DateEtHeure);
-            Assert.Equal("candidat@mail.com", entretien.EmailCandidat);
-            Assert.Equal("recruteur@soat.fr", entretien.EmailRecruteur);
+            var repoEntretien = entretiens.First();
+            Assert.Equal(dateEtHeure, repoEntretien.DateEtHeure);
+            Assert.Equal("candidat@mail.com", repoEntretien.EmailCandidat);
+            Assert.Equal("recruteur@soat.fr", repoEntretien.EmailRecruteur);
         }
         
         [Fact]
@@ -133,7 +131,8 @@ namespace PlanificationEntretien.Test.Controllers
         [Fact]
         public async Task ListerEntretiens_Should_Return_Status200()
         {
-            var entretien = new Entretien(Guid.NewGuid(),
+            var id = Guid.NewGuid();
+            var entretien = Entretien.of(id,
                 new DateTime(2022, 4, 5, 18, 0, 0),
                 "candidat@mail.com",
                 "recruteur@soat.fr");
@@ -143,8 +142,12 @@ namespace PlanificationEntretien.Test.Controllers
 
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
             
-            var entretiens = await response.Content.ReadFromJsonAsync<List<Entretien>>();
-            Assert.Contains(entretien, entretiens);
+            var entretiens = await response.Content.ReadFromJsonAsync<List<EntretienDto>>();
+            var entretienDto = new EntretienDto(id,
+                new DateTime(2022, 4, 5, 18, 0, 0),
+                "candidat@mail.com",
+                "recruteur@soat.fr");
+            Assert.Contains(entretienDto, entretiens);
         }
     }
 }
