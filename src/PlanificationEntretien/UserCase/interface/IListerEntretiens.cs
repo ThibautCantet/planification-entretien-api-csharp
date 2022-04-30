@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using PlanificationEntretien.Domain.Entities;
 
-namespace PlanificationEntretien.Domain.Ports;
+namespace PlanificationEntretien.UserCase;
 
 public interface IListerEntretiens
 {

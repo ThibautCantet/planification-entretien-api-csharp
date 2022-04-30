@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using PlanificationEntretien.Domain;
 using PlanificationEntretien.Domain.Entities;
 using PlanificationEntretien.Domain.Ports;
-using PlanificationEntretien.Infrastructure.Models;
+using PlanificationEntretien.Infrastructure.Repositories.InMemory.Models;
 
 namespace PlanificationEntretien.Infrastructure.Repositories
 {

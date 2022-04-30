@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using PlanificationEntretien.Domain;
 using PlanificationEntretien.Domain.Entities;
 using PlanificationEntretien.Domain.Ports;
+using PlanificationEntretien.Infrastructure.Repositories.InMemory.Models;
 using PlanificationEntretien.UserCase;
-using infra = PlanificationEntretien.Infrastructure.Models;
 
 namespace PlanificationEntretien.Infrastructure.Repositories
 {
     public class RecruteurRepository : IRecruteurRepository
     {
-        private readonly IDictionary<Guid, infra.InMemoryRecruteur> _recruteurs = new Dictionary<Guid, infra.InMemoryRecruteur>();
+        private readonly IDictionary<Guid, InMemoryRecruteur> _recruteurs = new Dictionary<Guid, InMemoryRecruteur>();
         private readonly object _lock = new object();
 
         public IEnumerable<Recruteur> FindAll()
@@ -30,7 +30,7 @@ namespace PlanificationEntretien.Infrastructure.Repositories
                     return null;
                 }
 
-                _recruteurs[recruteur.Id] = new infra.InMemoryRecruteur(recruteur.Id, recruteur.Language, recruteur.Email, recruteur.Xp);
+                _recruteurs[recruteur.Id] = new InMemoryRecruteur(recruteur.Id, recruteur.Language, recruteur.Email, recruteur.Xp);
                 return recruteur;
             }
         }
