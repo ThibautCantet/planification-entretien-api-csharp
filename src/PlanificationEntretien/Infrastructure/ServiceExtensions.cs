@@ -1,5 +1,4 @@
 using Microsoft.Extensions.DependencyInjection;
-using PlanificationEntretien.Domain;
 using PlanificationEntretien.Domain.Ports;
 using PlanificationEntretien.Infrastructure.Repositories;
 using PlanificationEntretien.UserCase;
@@ -14,6 +13,7 @@ namespace PlanificationEntretien.Infrastructure
             services.AddSingleton<IListerEntretiens, ListerEntretiens>();
             services.AddSingleton<ICreerCandidat, CreerCandidat>();
             services.AddSingleton<ICreerRecruteur, CreerRecruteur>();
+            services.AddSingleton<IListerRecruteursExperimentes, ListerRecruteursExperimentes>();
             services.AddSingleton<IEntretienRepository, EntretienRepository>();
             services.AddSingleton<ICandidatRepository, CandidatRepository>();
             services.AddSingleton<IRecruteurRepository, RecruteurRepository>();
